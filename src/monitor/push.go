@@ -6,10 +6,42 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"bytes"
+	"io/ioutil"
 )
+
+func checkErr(err error) {
+    if err != nil {
+        fmt.Println(err)
+        panic(err)
+    }
+}
+
+func pushToSlack() {
+  fmt.Println("pushToSlack start")
+  var jsonstr = []byte(`{
+  "text":"有运力了"
+  }`) //转换二进制
+  buffer:= bytes.NewBuffer(jsonstr)
+  url := "https://hooks.slack.com/services/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"
+	req, err := http.NewRequest(http.MethodPost, url, buffer)
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	checkErr(err)
+  req.Header.Add("Content-Type", "application/json;charset=UTF-8")
+  resp, err2 := client.Do(req)
+  checkErr(err2)
+  defer resp.Body.Close()
+  body, err3 := ioutil.ReadAll(resp.Body)
+  checkErr(err3)
+  if (body != nil) {
+    fmt.Println("pushToSlack success")
+  }
+}
 
 func PushTo(title string, content string, sound string) {
 	doPushToBark(title, content, sound)
+	pushToSlack()
 }
 func doPushToBark(title string, content string, sound string) {
 	var urls []string
