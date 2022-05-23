@@ -137,6 +137,7 @@ func (i *barkIds) Set(value string) error {
 
 func ConfigFromArg() (*config, string) {
 	var conf = new(config)
+	fmt.Println("start ConfigFromArg")
 	configFilePath := flag.String("p", "./config.yaml", "配置文件路径指定")
 	fmt.Println(configFilePath)
 	mode := flag.Int("m", -1, "mode")
