@@ -177,7 +177,8 @@ func ConfigFromFile(path string) config {
 		fmt.Println("配置文件下载完毕")
 
 	}
-
+	fmt.Println("start SetConfigFile")
+	fmt.Println(path)
 	viper.SetConfigFile(path)
 	// Read configuration
 	if err := viper.ReadInConfig(); err != nil {
