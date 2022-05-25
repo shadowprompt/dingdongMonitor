@@ -139,7 +139,7 @@ func ConfigFromArg() (*config, string) {
 	var conf = new(config)
 	fmt.Println("start ConfigFromArg")
 	configFilePath := flag.String("p", "./config.yaml", "配置文件路径指定")
-	fmt.Println(configFilePath)
+	fmt.Println(*configFilePath)
 	mode := flag.Int("m", -1, "mode")
 	rate := flag.Uint("r", 3600, "rate")
 	lat := flag.String("lat", "", "latitude")
