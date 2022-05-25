@@ -54,6 +54,7 @@ func InnitConfig() {
 	var conf = new(config)
 	argConf, configPath := ConfigFromArg()
 	fileConf := ConfigFromFile(configPath)
+	fmt.Println(fileConf)
 	conf = &fileConf
 	if argConf.Latitude != "" && argConf.Longitude != "" {
 		conf.Longitude = argConf.Longitude
