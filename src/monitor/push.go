@@ -23,7 +23,7 @@ func pushToSlack() {
   "text":"有运力了"
   }`) //转换二进制
   buffer:= bytes.NewBuffer(jsonstr)
-  url := "https://hooks.slack.com/services/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"
+  url := "https://robot.daozhao.com.cn/slack/_webhook"
 	req, err := http.NewRequest(http.MethodPost, url, buffer)
 	client := &http.Client{}
 	resp, err := client.Do(req)
