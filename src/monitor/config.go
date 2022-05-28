@@ -54,6 +54,7 @@ func InnitConfig() {
 	var conf = new(config)
 	argConf, configPath := ConfigFromArg()
 	fmt.Println("InnitConfig:" + configPath)
+	configPath= "./config.yaml"
 	fileConf := ConfigFromFile(configPath)
 	conf = &fileConf
 	if argConf.Latitude != "" && argConf.Longitude != "" {
@@ -140,6 +141,7 @@ func ConfigFromArg() (*config, string) {
 	var conf = new(config)
 	fmt.Println("start ConfigFromArg")
 	configFilePath := flag.String("p", "./config.yaml", "配置文件路径指定")
+	fmt.Println("configFilePath:")
 	fmt.Println(*configFilePath)
 	mode := flag.Int("m", -1, "mode")
 	rate := flag.Uint("r", 3600, "rate")
@@ -162,6 +164,7 @@ func ConfigFromArg() (*config, string) {
 	}
 	conf.IsPrivate = *isPrivate
 	Conf.IsPrivate = *isPrivate
+	fmt.Println(*configFilePath)
 	return conf, *configFilePath
 
 }
