@@ -19,6 +19,5 @@ longitude: 121.380922
 #longitude: 120.610868
 bark:
   id: #bark id 支持多设备
-    -
-    -
+    - RdEQGzyJJMm5WQufWWLByN
   sound: alarm #通知声音
