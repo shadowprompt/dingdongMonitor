@@ -53,6 +53,7 @@ type config struct {
 func InnitConfig() {
 	var conf = new(config)
 	argConf, configPath := ConfigFromArg()
+	fmt.Println("InnitConfig:" + configPath)
 	fileConf := ConfigFromFile(configPath)
 	conf = &fileConf
 	if argConf.Latitude != "" && argConf.Longitude != "" {
