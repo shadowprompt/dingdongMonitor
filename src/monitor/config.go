@@ -56,6 +56,7 @@ func InnitConfig() {
 	fmt.Println("InnitConfig:" + configPath)
 	configPath= "./config.yaml"
 	fileConf := ConfigFromFile(configPath)
+	fmt.Println(fileConf)
 	conf = &fileConf
 	if argConf.Latitude != "" && argConf.Longitude != "" {
 		conf.Longitude = argConf.Longitude
